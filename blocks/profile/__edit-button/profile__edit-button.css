@@ -17,4 +17,14 @@
   opacity: .6;
 }
 
+@media screen and (max-width: 767px) {
+  .profile__edit-button {
+    margin-top: 9px;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    background-size: 8px 8px;
+  }
+}
+
 
