@@ -1,0 +1,14 @@
+.form__button {
+  width: 100%;
+  min-height: 50px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  border: 0;
+  border-radius: 3px; /*2px, как в макете, совсем не заметны при отображении кнопки*/
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.form__button:hover {
+  background-color: rgba(0, 0, 0, .8);
+}

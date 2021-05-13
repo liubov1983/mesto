@@ -1,0 +1,14 @@
+.form__item {
+  margin-bottom: 30px;
+  width: 100%;
+  padding-bottom: 13px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.form__item:last-of-type {
+  margin-bottom: 48px;
+}
