@@ -5,3 +5,10 @@
   background-color: #fff;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .popup__container {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+}

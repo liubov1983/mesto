@@ -2,6 +2,9 @@
   width: 100%;
   min-height: 50px;
   color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
   background-color: rgba(0, 0, 0, 1);
   border: 0;
   border-radius: 3px; /*2px, как в макете, совсем не заметны при отображении кнопки*/
@@ -11,4 +14,12 @@
 
 .form__button:hover {
   background-color: rgba(0, 0, 0, .8);
+}
+
+@media screen and (max-width: 767px) {
+  .form__button {
+    min-height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
