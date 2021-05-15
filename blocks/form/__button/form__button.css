@@ -7,7 +7,7 @@
   font-weight: 400;
   background-color: rgba(0, 0, 0, 1);
   border: 0;
-  border-radius: 3px; /*2px, как в макете, совсем не заметны при отображении кнопки*/
+  border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.5s;
 }
