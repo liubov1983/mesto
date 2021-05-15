@@ -15,4 +15,4 @@
 
 **Ссылка на проект**
 
-Проект доступен на GitPages по этой [ссылке](https://liubov1983.github.io/russian-travel/index.html)
+Проект доступен на GitPages по этой [ссылке](https://liubov1983.github.io/mesto/index.html)
