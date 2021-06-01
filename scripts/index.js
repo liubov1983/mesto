@@ -11,14 +11,19 @@ const addCardButton = document.querySelector('.profile__add-button');
 const closeButtonAddCard = popupAddCard.querySelector('.popup__close');
 const formElementAddCard = popupAddCard.querySelector('.form');
 const imagePopup = document.querySelector('.popup_type_show-image');
+const popupImage = imagePopup.querySelector('.popup__image');
+const popupText = imagePopup.querySelector('.popup__text');
 const closeButtonImage = imagePopup.querySelector('.popup__close');
 const cardList = document.querySelector('.elements__list');
+const cardTemplate = document.querySelector('.card-template').content;
+const cardNameInput = formElementAddCard.querySelector('.form__item_el_name').value;
+const cardLinkInput = formElementAddCard.querySelector('.form__item_el_link').value;
 
 function createCard(nameValue, linkValue) {
-  const cardTemplate = document.querySelector('.card-template').content;
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
-  newCard.querySelector('.card__image').src = linkValue;
-  newCard.querySelector('.card__image').alt = nameValue;
+  const cardImage = newCard.querySelector('.card__image');
+  cardImage.src = linkValue;
+  cardImage.alt = nameValue;
   newCard.querySelector('.card__title').textContent = nameValue;
   setEventListener(newCard);
   return newCard;
@@ -40,17 +45,11 @@ function editFormSubmit(evt) {
   togglePopup(popupProfile);
 }
 
-function resetForm(name, text) {
-  name.value = '';
-  text.value = '';
-}
-
 function addCardFormSubmit(evt) {
   evt.preventDefault();
-  const cardNameInput = formElementAddCard.querySelector('.form__item_el_name').value;
-  const cardLinkInput = formElementAddCard.querySelector('.form__item_el_link').value;
   const addedCard = createCard(cardNameInput, cardLinkInput);
   cardList.prepend(addedCard);
+  formElementAddCard.reset();
   togglePopup(popupAddCard);
 }
 
@@ -63,9 +62,9 @@ function addLike(evt) {
 }
 
 function getImage(nameValue, linkValue) {
-  imagePopup.querySelector('.popup__image').src = linkValue;
-  imagePopup.querySelector('.popup__image').alt = nameValue;
-  imagePopup.querySelector('.popup__text').textContent = nameValue;
+  popupImage.src = linkValue;
+  popupImage.alt = nameValue;
+  popupText.textContent = nameValue;
 }
 
 function showImage(evt) {
@@ -87,10 +86,7 @@ editButton.addEventListener('click', () => {
   togglePopup(popupProfile);
 });
 
-closeButtonProfile.addEventListener('click', () => {
-  togglePopup(popupProfile);
-  resetForm(nameInput, jobInput);
-});
+closeButtonProfile.addEventListener('click', () => togglePopup(popupProfile));
 
 formElementProfile.addEventListener('submit', editFormSubmit);
 
