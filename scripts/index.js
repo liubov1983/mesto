@@ -10,18 +10,20 @@ const popupAddCard = document.querySelector('.popup_type_add-card');
 const addCardButton = document.querySelector('.profile__add-button');
 const closeButtonAddCard = popupAddCard.querySelector('.popup__close');
 const formElementAddCard = popupAddCard.querySelector('.form');
+const cardNameInput = formElementAddCard.querySelector('.form__item_el_name');
+const cardLinkInput = formElementAddCard.querySelector('.form__item_el_link');
 const imagePopup = document.querySelector('.popup_type_show-image');
 const popupImage = imagePopup.querySelector('.popup__image');
 const popupText = imagePopup.querySelector('.popup__text');
 const closeButtonImage = imagePopup.querySelector('.popup__close');
 const cardList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.card-template').content;
-const cardNameInput = formElementAddCard.querySelector('.form__item_el_name').value;
-const cardLinkInput = formElementAddCard.querySelector('.form__item_el_link').value;
 
 function createCard(nameValue, linkValue) {
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
+  console.log(newCard);
   const cardImage = newCard.querySelector('.card__image');
+  console.log(cardImage);
   cardImage.src = linkValue;
   cardImage.alt = nameValue;
   newCard.querySelector('.card__title').textContent = nameValue;
@@ -47,7 +49,7 @@ function editFormSubmit(evt) {
 
 function addCardFormSubmit(evt) {
   evt.preventDefault();
-  const addedCard = createCard(cardNameInput, cardLinkInput);
+  const addedCard = createCard(cardNameInput.value, cardLinkInput.value);
   cardList.prepend(addedCard);
   formElementAddCard.reset();
   togglePopup(popupAddCard);
