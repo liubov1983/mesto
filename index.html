@@ -38,9 +38,15 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form form" action="#" name="profile">
-        <input class="form__item form__item_el_name" type="text" name="user" placeholder="Ваше имя" required>
-        <input class="form__item form__item_el_job" type="text" name="job" placeholder="Ваша профессия" required>
+      <form class="popup__form form" action="#" name="profile" novalidate>
+        <label class="form__field">
+          <input id="profile-name" class="form__item form__item_el_name" type="text" name="user" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="form__item-error profile-name-error"></span>
+        </label>
+        <label class="form__field">
+          <input id="profile-job" class="form__item form__item_el_job" type="text" name="job" placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="form__item-error profile-job-error"></span>
+        </label>
         <button class="form__button" type="submit">Сохранить</button>
       </form>
     </div>
@@ -50,9 +56,15 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form form" action="#" name="card">
-        <input class="form__item form__item_el_name" type="text" name="title" placeholder="Название" required>
-        <input class="form__item form__item_el_link" type="url" name="link" placeholder="Ссылка на картинку" required>
+      <form class="popup__form form" action="#" name="card" novalidate>
+        <label class="form__field">
+          <input id="place-title" class="form__item form__item_el_name" type="text" name="title" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="form__item-error place-title-error"></span>
+        </label>
+        <label class="form__field">
+          <input id="place-link" class="form__item form__item_el_link" type="url" name="link" placeholder="Ссылка на картинку" required>
+          <span class="form__item-error place-link-error"></span>
+        </label>
         <button class="form__button" type="submit">Создать</button>
       </form>
     </div>
@@ -79,5 +91,6 @@
 
   <script src="scripts/initial-cards.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/validate.js"></script>
 </body>
 </html>

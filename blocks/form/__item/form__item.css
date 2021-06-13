@@ -1,5 +1,4 @@
 .form__item {
-  margin-bottom: 30px;
   width: 100%;
   padding-bottom: 13px;
   font-size: 14px;
@@ -9,12 +8,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.form__item:last-of-type {
-  margin-bottom: 48px;
-}
-
-@media screen and (max-width: 767px) {
-  .form__item:last-of-type {
-    margin-bottom: 45px;
-  }
+.form__item::placeholder {
+  color: #c4c4c4;
 }
