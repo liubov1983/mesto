@@ -7,5 +7,6 @@
 
 .form__button_disabled:hover {
   background-color: transparent;
+  cursor: default;
 }
 

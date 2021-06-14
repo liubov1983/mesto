@@ -18,7 +18,7 @@ const popupText = imagePopup.querySelector('.popup__text');
 const closeButtonImage = imagePopup.querySelector('.popup__close');
 const cardList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.card-template').content;
-const actionButton = "Escape";
+const actionKey = "Escape";
 
 function createCard(nameValue, linkValue) {
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
@@ -51,7 +51,7 @@ function editFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  openPopup(popupProfile);
+  closePopup(popupProfile);
 }
 
 function addCardFormSubmit(evt) {
@@ -59,7 +59,7 @@ function addCardFormSubmit(evt) {
   const addedCard = createCard(cardNameInput.value, cardLinkInput.value);
   cardList.prepend(addedCard);
   formElementAddCard.reset();
-  openPopup(popupAddCard);
+  closePopup(popupAddCard);
 }
 
 function deleteCard(evt) {
@@ -90,9 +90,8 @@ function setEventListener(element) {
 }
 
 const handleEscUp = (evt) => {
-  evt.preventDefault();
   const activePopup = document.querySelector('.popup_opened');
-  if(evt.key === actionButton) {
+  if(evt.key === actionKey) {
     closePopup(activePopup);
   }
 }
