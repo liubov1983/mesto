@@ -35,15 +35,25 @@ initialCards.forEach((item) => {
   cardList.append(card);
 });
 
-function openPopup(modal) {
+function openPopup(modal, data) {
   modal.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscUp);
-  document.addEventListener('click', closePopupOverlay);
+  document.addEventListener('mousedown', closePopupOverlay);
+  resetErrors(modal, data);
+}
+
+function resetErrors(modal, data) {
+  const form = modal.querySelector(data.formSelector);
+  const inputList = form.querySelectorAll(data.inputSelector);
+  inputList.forEach((input) => {
+    hideInputError(form, input, data);
+    toggleButtonState(form, data);
+  });
 }
 
 function closePopup(modal) {
   document.removeEventListener('keydown', handleEscUp);
-  document.removeEventListener('click', closePopupOverlay);
+  document.removeEventListener('mousedown', closePopupOverlay);
   modal.classList.remove('popup_opened');
 }
 
@@ -90,8 +100,8 @@ function setEventListener(element) {
 }
 
 const handleEscUp = (evt) => {
-  const activePopup = document.querySelector('.popup_opened');
   if(evt.key === actionKey) {
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   }
 }
@@ -106,14 +116,14 @@ const closePopupOverlay = (evt) => {
 editButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  openPopup(popupProfile);
+  openPopup(popupProfile, data);
 });
 
 closeButtonProfile.addEventListener('click', () => closePopup(popupProfile));
 
 formElementProfile.addEventListener('submit', editFormSubmit);
 
-addCardButton.addEventListener('click', () => openPopup(popupAddCard));
+addCardButton.addEventListener('click', () => openPopup(popupAddCard, data));
 
 closeButtonAddCard.addEventListener('click', () => closePopup(popupAddCard));
 
