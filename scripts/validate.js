@@ -63,4 +63,12 @@ function toggleButtonState(form, data) {
   }
 }
 
+function resetErrors(form, data) {
+  const inputList = form.querySelectorAll(data.inputSelector);
+  inputList.forEach((input) => {
+    hideInputError(form, input, data);
+    toggleButtonState(form, data);
+  });
+}
+
 enableValidation(data);

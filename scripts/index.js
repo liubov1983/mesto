@@ -35,20 +35,10 @@ initialCards.forEach((item) => {
   cardList.append(card);
 });
 
-function openPopup(modal, data) {
+function openPopup(modal) {
   modal.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscUp);
   document.addEventListener('mousedown', closePopupOverlay);
-  resetErrors(modal, data);
-}
-
-function resetErrors(modal, data) {
-  const form = modal.querySelector(data.formSelector);
-  const inputList = form.querySelectorAll(data.inputSelector);
-  inputList.forEach((input) => {
-    hideInputError(form, input, data);
-    toggleButtonState(form, data);
-  });
 }
 
 function closePopup(modal) {
@@ -116,19 +106,21 @@ const closePopupOverlay = (evt) => {
 editButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  openPopup(popupProfile, data);
+  openPopup(popupProfile);
+  resetErrors(formElementProfile, data);
 });
 
 closeButtonProfile.addEventListener('click', () => closePopup(popupProfile));
 
 formElementProfile.addEventListener('submit', editFormSubmit);
 
-addCardButton.addEventListener('click', () => openPopup(popupAddCard, data));
+addCardButton.addEventListener('click', () => {
+  openPopup(popupAddCard);
+  resetErrors(formElementAddCard, data);
+});
 
 closeButtonAddCard.addEventListener('click', () => closePopup(popupAddCard));
 
 formElementAddCard.addEventListener('submit', addCardFormSubmit);
 
 closeButtonImage.addEventListener('click', () => closePopup(imagePopup));
-
-
