@@ -40,7 +40,7 @@ function editFormSubmit(evt) {
 function addCardFormSubmit(evt) {
   evt.preventDefault();
   const data = Object.fromEntries(new FormData(evt.target));
-  const card = new Card(data);
+  const card = new Card(data, '.card-template');
   const cardElement = card.generateCard();
   cardList.prepend(cardElement);
   formElementAddCard.reset();
