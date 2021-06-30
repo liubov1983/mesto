@@ -58,7 +58,7 @@ export class FormValidator {
     const inputList = this._element.querySelectorAll(this._data.inputSelector);
 
     inputList.forEach((item) => {
-      this._error.textContent = '';
+      this._hideInputError(item);
       this._toggleButtonState();
     });
     //this._hideInputError();
