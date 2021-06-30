@@ -15,11 +15,8 @@ const popupAddCard = document.querySelector('.popup_type_add-card');
 const addCardButton = document.querySelector('.profile__add-button');
 const closeButtonAddCard = popupAddCard.querySelector('.popup__close');
 const formElementAddCard = popupAddCard.querySelector('.form');
-const cardNameInput = formElementAddCard.querySelector('.form__item_el_name');
-const cardLinkInput = formElementAddCard.querySelector('.form__item_el_link');
 const closeButtonImage = imagePopup.querySelector('.popup__close');
 const cardList = document.querySelector('.elements__list');
-
 
 initialCards.forEach((item) => {
   const card = new Card(item, '.card-template');
@@ -71,4 +68,3 @@ closeButtonAddCard.addEventListener('click', () => closePopup(popupAddCard));
 formElementAddCard.addEventListener('submit', addCardFormSubmit);
 
 closeButtonImage.addEventListener('click', () => closePopup(imagePopup));
-
