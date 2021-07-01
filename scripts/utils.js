@@ -17,8 +17,8 @@ const handleEscUp = (evt) => {
 }
 
 const closePopupOverlay = (evt) => {
-  const activePopup = document.querySelector('.popup_opened');
   if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   }
 }

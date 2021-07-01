@@ -16,6 +16,8 @@ export class FormValidator {
 
   enableValidation() {
     this._element = document.querySelector(this._selector);
+    this._inputList = Array.from(this._element.querySelectorAll(this._data.inputSelector));
+    this._button = this._element.querySelector(this._data.submitButtonSelector);
 
     this._element.addEventListener('submit', this._handleFormSubmit);
     this._element.addEventListener('input', this._handleFormInput);
@@ -54,18 +56,15 @@ export class FormValidator {
     this._error.textContent = '';
   }
 
-  _resetErrors() {
-    const inputList = Array.from(this._element.querySelectorAll(this._data.inputSelector));
+  resetErrors() {
+    this._toggleButtonState();
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
-      this._toggleButtonState();
     });
   }
 
   _toggleButtonState() {
-    this._button = this._element.querySelector(this._data.submitButtonSelector);
-
     if(!this._element.checkValidity()) {
       this._button.classList.add(this._data.inactiveButtonClass);
       this._button.setAttribute('disabled', true);

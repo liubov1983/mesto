@@ -14,15 +14,18 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.card__image');
+    this._cardTitle = this._element.querySelector('.card__title');
+    this._cardIcon = this._element.querySelector('.card__icon');
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
     this._setEventListeners();
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = this._name;
-    this._element.querySelector('.card__title').textContent = this._name;
     return this._element;
   }
 
   _addLike() {
-    this._element.querySelector('.card__icon').classList.toggle('card__icon_active');
+    this._cardIcon.classList.toggle('card__icon_active');
   }
 
   _deleteCard() {
@@ -37,13 +40,13 @@ class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector('.card__icon').addEventListener('click', () => {
+    this._cardIcon.addEventListener('click', () => {
       this._addLike();
     });
     this._element.querySelector('.card__delete').addEventListener('click', () => {
       this._deleteCard();
     });
-    this._element.querySelector('.card__image').addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._showImage();
     });
   }
